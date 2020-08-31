@@ -27,6 +27,10 @@ spec:
       # Release name override (defaults to application name)
       releaseName: cluster-autoscale
 
+      parameters:
+      - name: 'autoDiscovery.clusterName'
+        value: rparrott-sandbox
+
       # values: |
 
       #   metricsScraper:
