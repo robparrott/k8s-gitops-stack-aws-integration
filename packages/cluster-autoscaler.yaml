@@ -31,13 +31,17 @@ spec:
       - name: 'autoDiscovery.clusterName'
         value: 'rparrott-sandbox'
 
-      # values: |
+      values: |
 
-      #   metricsScraper:
-      #     enabled: true
+        autoDiscovery:
 
-      #   metrics-server:
-      #     enabled: true
+          clusterName: rparrott-sandbox
+
+          tags:
+          - k8s.io/cluster-autoscaler/enabled
+          - k8s.io/cluster-autoscaler/rparrott-sandbox
+          
+        awsRegion: us-east-2
 
 
   # Sync policy
