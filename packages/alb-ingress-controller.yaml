@@ -31,9 +31,9 @@ spec:
       - name: 'clusterName'
         value: rparrott-sandbox
       - name: 'autoDiscoverAwsRegion'
-        value: true
+        value: "true"
       - name: 'autoDiscoverAwsVpcID'
-        value: true
+        value: "true"
 
   # Sync policy
   syncPolicy:
