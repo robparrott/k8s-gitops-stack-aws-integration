@@ -34,6 +34,8 @@ spec:
         value: "true"
       - name: 'autoDiscoverAwsVpcID'
         value: "true"
+      - name: 'rbac.create'
+        value: 'true'
 
   # Sync policy
   syncPolicy:
