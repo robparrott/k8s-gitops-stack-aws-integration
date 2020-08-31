@@ -1,52 +1,52 @@
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: package-aws-cluster-autoscaler
-#   namespace: argocd
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: package-aws-cluster-autoscaler
+  namespace: argocd
 
-#   # finalizers:  # Add a this finalizer ONLY if you want these to cascade delete.
-#   #   - resources-finalizer.argocd.argoproj.io  
+  # finalizers:  # Add a this finalizer ONLY if you want these to cascade delete.
+  #   - resources-finalizer.argocd.argoproj.io  
 
-# spec:
+spec:
 
-#   project: default
+  project: default
 
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: kube-system
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
 
-#   source:
+  source:
 
-#     # New chart v2.X in new helm repo
-#     repoURL: 'https://kubernetes.github.io/autoscaler'
-#     targetRevision: 1.0.2
-#     chart: cluster-autoscaler-chart
+    # New chart v2.X in new helm repo
+    repoURL: 'https://kubernetes.github.io/autoscaler'
+    targetRevision: 1.0.2
+    chart: cluster-autoscaler-chart
 
-#     helm:
-#       # Release name override (defaults to application name)
-#       releaseName: cluster-autoscaler
+    helm:
+      # Release name override (defaults to application name)
+      releaseName: cluster-autoscaler
 
-#       parameters:
-#       - name: 'autoDiscovery.clusterName'
-#         value: 'rparrott-sandbox'
+      parameters:
+      - name: 'autoDiscovery.clusterName'
+        value: 'rparrott-sandbox'
 
-#       # values: |
+      # values: |
 
-#       #   metricsScraper:
-#       #     enabled: true
+      #   metricsScraper:
+      #     enabled: true
 
-#       #   metrics-server:
-#       #     enabled: true
+      #   metrics-server:
+      #     enabled: true
 
 
-#   # Sync policy
-#   syncPolicy:
-#     automated:
-#       # Specifies if resources should be pruned during auto-syncing ( false by default ).
-#       prune: true 
+  # Sync policy
+  syncPolicy:
+    automated:
+      # Specifies if resources should be pruned during auto-syncing ( false by default ).
+      prune: true 
 
-#       # Specifies if partial app sync should be executed when resources are 
-#       #   changed only in target Kubernetes cluster and no git change detected 
-#       #   ( false by default ).
-#       selfHeal: false 
+      # Specifies if partial app sync should be executed when resources are 
+      #   changed only in target Kubernetes cluster and no git change detected 
+      #   ( false by default ).
+      selfHeal: false 
